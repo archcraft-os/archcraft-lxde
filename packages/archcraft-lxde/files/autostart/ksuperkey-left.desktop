@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Ksuperkey Left
+Comment=Left Super Key
+Exec=ksuperkey -e 'Super_L=Alt_L|F1'

@@ -1,0 +1,26 @@
+[Added Associations]
+audio/mpeg=lxmusic.desktop;
+text/x-csrc=geany.desktop;
+text/plain=geany.desktop;
+application/x-shellscript=geany.desktop;
+application/x-theme=geany.desktop;
+application/json=geany.desktop;
+text/html=firefox.desktop;geany.desktop;
+
+[Default Applications]
+image/bmp=gpicview.desktop
+image/gif=gpicview.desktop
+image/jpeg=gpicview.desktop
+image/jpg=gpicview.desktop
+image/png=gpicview.desktop
+image/tiff=gpicview.desktop
+image/x-bmp=gpicview.desktop
+image/x-pcx=gpicview.desktop
+image/x-tga=gpicview.desktop
+image/x-portable-pixmap=gpicview.desktop
+image/x-portable-bitmap=gpicview.desktop
+image/x-targa=gpicview.desktop
+image/x-portable-greymap=gpicview.desktop
+application/pcx=gpicview.desktop
+image/svg+xml=gpicview.desktop
+image/svg-xml=gpicview.desktop

@@ -1,0 +1,60 @@
+# Maintainer: Aditya Shakya <adi1090x@gmail.com>
+
+pkgname=archcraft-lxde
+pkgver=1.0
+pkgrel=1
+pkgdesc="LXDE desktop configurations for Archcraft"
+url="https://github.com/archcraft-os/archcraft-lxde"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=('gpicview' 'lxappearance' 'lxappearance-obconf'
+		 'lxde-common' 'lxde-icon-theme' 'lxhotkey'
+		 'lxinput' 'lxlauncher' 'lxmusic'
+		 'lxpanel' 'lxrandr' 'lxsession'
+		 'lxtask' 'lxterminal' 'openbox'
+		 'pcmanfm' 'archcraft-lxdm'
+)
+conflicts=('archcraft-skeleton')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+	local _styledir=${pkgdir}/usr/share/archcraft
+	local _skeldir=${pkgdir}/etc/skel
+	local _configdir=${pkgdir}/etc/skel/.config
+	local _bindir=${pkgdir}/usr/local/bin
+	local _xdgdir=${pkgdir}/etc/xdg
+
+	mkdir -p "$_styledir" && mkdir -p "$_skeldir" && mkdir -p "$_configdir"
+	mkdir -p "$_bindir" && mkdir -p "$_xdgdir"
+	
+	# Copy style scripts & fix permissions
+	cp -r ${srcdir}/lxde-styles ${_styledir}
+	chmod +x "$_styledir"/lxde-styles/theme-changer
+	chmod +x "$_styledir"/lxde-styles/scripts/*
+
+	# Copy configs files
+	cfgs=(dunst flameshot geany gpicview gtk-3.0 Kvantum 
+		  libfm lxpanel lxsession lxterminal openbox pcmanfm qt5ct xfce4 mimeapps.list picom.conf)
+	for cfg in "${cfgs[@]}"; do
+		cp -r ${srcdir}/"$cfg" 				"$_configdir"	
+	done
+
+	install -Dm 644 .dmrc					"$_skeldir"/.dmrc
+	install -Dm 644 .face					"$_skeldir"/.face
+	install -Dm 644 .gtkrc-2.0				"$_skeldir"/.gtkrc-2.0
+	install -Dm 644 .hushlogin				"$_skeldir"/.hushlogin
+
+	# Copy scripts
+	cp -r ${srcdir}/scripts/* 				"$_bindir"
+	chmod +x "$_bindir"/*
+
+	# Misc
+	cp -r ${srcdir}/autostart 				"$_xdgdir"
+	install -Dm 644 logout-banner.png 		${pkgdir}/usr/share/pixmaps/logout-banner.png
+}
