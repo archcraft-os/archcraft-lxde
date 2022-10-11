@@ -1,0 +1,12 @@
+# Work Directory
+/profile/work
+
+# ISO Directory
+/profile/out
+
+# Files
+/files
+
+# Scripts
+cleanup.sh
+push.sh
