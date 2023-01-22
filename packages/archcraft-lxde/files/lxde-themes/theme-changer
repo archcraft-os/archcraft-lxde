@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
+##
+## Pipemenu to change themes in LXDE
+
+# Variables and functions
+MENUS_LIBDIR="$HOME/.config/lxde-themes"
+if ! . "$MENUS_LIBDIR/menulib.cfg" 2> /dev/null; then
+	echo "Error: Failed to locate menulib.cfg in $MENUS_LIBDIR" >&2
+	exit 1
+fi
+
+# Dir
+DIR="$HOME/.config/lxde-themes/themes"
+CTHEME="`cat $DIR/.current`"
+
+# Themes
+THEMES=(`ls -p --hide='apply.sh' $DIR`)
+
+# Generate menu
+gen_menu () {
+    local COUNT=1
+
+	menuStart
+	menuSeparator "⁌ Themes (`echo ${#THEMES[@]}`) ⁍"
+	menuItem "Current: $CTHEME" "echo"	
+	for THEME in "${THEMES[@]}"; do
+		TNAME="${THEME%.*}"
+		menuItem "${COUNT}. ${TNAME^}" "$DIR/apply.sh $TNAME"
+		COUNT=$(($COUNT+1))
+	done
+	menuEnd
+}
+
+{ gen_menu; exit 0; }

@@ -2,20 +2,20 @@
 
 pkgname=archcraft-lxde
 pkgver=1.0
-pkgrel=1
+pkgrel=4
 pkgdesc="LXDE desktop configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-lxde"
 arch=('any')
 license=('GPL3')
 makedepends=()
 depends=('gpicview' 'lxappearance' 'lxappearance-obconf'
-		 'lxde-common' 'lxde-icon-theme' 'lxhotkey'
-		 'lxinput' 'lxlauncher' 'lxmusic'
-		 'lxpanel' 'lxrandr' 'lxsession'
-		 'lxtask' 'lxterminal' 'openbox'
-		 'pcmanfm' 'archcraft-lxdm'
+		 'lxde-common' 'lxde-icon-theme' 'lxhotkey-gtk3'
+		 'lxinput-gtk3' 'lxlauncher-gtk3' 'lxmusic'
+		 'lxpanel-gtk3' 'lxrandr-gtk3' 'lxsession-gtk3'
+		 'lxtask-gtk3' 'lxterminal' 'openbox'
+		 'pcmanfm-gtk3' 'archcraft-lxdm'
 )
-conflicts=('archcraft-skeleton')
+conflicts=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 
@@ -24,37 +24,23 @@ prepare() {
 }
 
 package() {
-	local _styledir=${pkgdir}/usr/share/archcraft
-	local _skeldir=${pkgdir}/etc/skel
 	local _configdir=${pkgdir}/etc/skel/.config
 	local _bindir=${pkgdir}/usr/local/bin
-	local _xdgdir=${pkgdir}/etc/xdg
 
-	mkdir -p "$_styledir" && mkdir -p "$_skeldir" && mkdir -p "$_configdir"
-	mkdir -p "$_bindir" && mkdir -p "$_xdgdir"
-	
-	# Copy style scripts & fix permissions
-	cp -r ${srcdir}/lxde-styles ${_styledir}
-	chmod +x "$_styledir"/lxde-styles/theme-changer
-	chmod +x "$_styledir"/lxde-styles/scripts/*
+	mkdir -p "$_configdir" && mkdir -p "$_bindir"
 
 	# Copy configs files
-	cfgs=(dunst flameshot geany gpicview gtk-3.0 Kvantum 
-		  libfm lxpanel lxsession lxterminal openbox pcmanfm qt5ct xfce4 mimeapps.list picom.conf)
+	cfgs=(flameshot gpicview libfm lxde-themes lxpanel lxsession lxterminal openbox pcmanfm)
 	for cfg in "${cfgs[@]}"; do
 		cp -r ${srcdir}/"$cfg" 				"$_configdir"	
 	done
-
-	install -Dm 644 .dmrc					"$_skeldir"/.dmrc
-	install -Dm 644 .face					"$_skeldir"/.face
-	install -Dm 644 .gtkrc-2.0				"$_skeldir"/.gtkrc-2.0
-	install -Dm 644 .hushlogin				"$_skeldir"/.hushlogin
+	chmod +x "$_configdir"/lxde-themes/theme-changer
+	chmod +x "$_configdir"/lxde-themes/themes/apply.sh
 
 	# Copy scripts
 	cp -r ${srcdir}/scripts/* 				"$_bindir"
 	chmod +x "$_bindir"/*
 
 	# Misc
-	cp -r ${srcdir}/autostart 				"$_xdgdir"
 	install -Dm 644 logout-banner.png 		${pkgdir}/usr/share/pixmaps/logout-banner.png
 }

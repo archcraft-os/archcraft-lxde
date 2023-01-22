@@ -69,6 +69,11 @@ EOL
 
 ## -------------------------------------------------------------- ##
 
+## Set zsh as default shell for new user
+sed -i -e 's#SHELL=.*#SHELL=/bin/zsh#g' /etc/default/useradd
+
+## -------------------------------------------------------------- ##
+
 ## Copy Few Configs Into Root Dir
 rdir="/root/.config"
 sdir="/etc/skel"
@@ -116,9 +121,13 @@ cp /usr/share/pixmaps/logout-banner.png /usr/share/lxde/images/logout-banner.png
 
 ## -------------------------------------------------------------- ##
 
-## Set `Qogirr` as default cursor theme
-sed -i -e 's|Inherits=.*|Inherits=Qogirr|g' /usr/share/icons/default/index.theme
-mkdir -p /etc/skel/.icons && cp -rf /usr/share/icons/default /etc/skel/.icons/default
+## Remove extra sessions
+rm -rf /usr/share/xsessions/{openbox.desktop,openbox-kde.desktop}
+
+## -------------------------------------------------------------- ##
+
+## Fix cursor theme
+rm -rf /usr/share/icons/default
 
 ## Update xdg-user-dirs for bookmarks in thunar and pcmanfm
 runuser -l liveuser -c 'xdg-user-dirs-update'

@@ -1,5 +1,14 @@
 <h2 align="center">Archcraft (LXDE) : Changelogs</h2>
 
+### January 2023
+
+- Updated ISO Base
+- Created New Theming System
+- User Can Create Their Own Themes Easily
+- Bug Fixes, Etc.
+
+#
+
 ### October 2022 
 
 - Created the ISO base from scratch

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
 
 ## Generate README.md file
 
@@ -27,12 +26,6 @@ echo -e "\n[*] Generating README.md file..."
 cat > "$FILE" <<- _EOF_
 	<p align="center">
 	  <a href="${SITE}"><img src="https://raw.githubusercontent.com/archcraft-os/archcraft-packages/main/archcraft-artworks/files/logo/png/logo-circle/logo-circle-1.png" height="100" width="100" alt="Archcraft"></a>
-	</p>
-
-	<p align="center">
-	  <a href="https://ko-fi.com/adi1090x"><img width="32px" src="https://raw.githubusercontent.com/archcraft-os/.github/main/profile/assets/1.png" alt="Donate for Archcraft on ko-fi"></a>&nbsp;
-	  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6VETHHYHXESRN"><img width="32px" src="https://raw.githubusercontent.com/archcraft-os/.github/main/profile/assets/2.png" alt="Donate for Archcraft via Paypal"></a>&nbsp;
-	  <a href="https://liberapay.com/adi1090x"><img width="32px" src="https://raw.githubusercontent.com/archcraft-os/.github/main/profile/assets/3.png" alt="Donate for Archcraft via Liberapay"></a>
 	</p>
 
 	<p align="center">
@@ -90,7 +83,7 @@ cat > "$FILE" <<- _EOF_
 	\`\`\`
 _EOF_
 
-if [[ `cat $FILE | wc -l` -eq "63" ]]; then
+if [[ `cat $FILE | wc -l` -eq "57" ]]; then
 	echo -e "\n[*] File generated successfully.\n"
 	read -p "[?] Do you want to delete the 'files' directory (y/n) : "
 	if [[ "$REPLY" == "y" ]]; then
