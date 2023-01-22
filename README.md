@@ -29,11 +29,11 @@ Yet another minimal linux distribution, based on <a href="https://www.archlinux.
 
 ### Latest Release
 
-- **`ISO`** : [archcraft-lxde-2022.10.10-x86_64.iso](https://github.com/archcraft-os/archcraft-lxde/releases/download/v22.10/archcraft-lxde-2022.10.10-x86_64.iso)
-- **`SIG`** : [archcraft-lxde-2022.10.10-x86_64.iso.sig](https://github.com/archcraft-os/archcraft-lxde/releases/download/v22.10/archcraft-lxde-2022.10.10-x86_64.iso.sig)
-- **`SHA`** : [archcraft-lxde-2022.10.10-x86_64.iso.sha256sum](https://github.com/archcraft-os/archcraft-lxde/releases/download/v22.10/archcraft-lxde-2022.10.10-x86_64.iso.sha256sum)
-`6060ce3e9f0a22b68023704c3b2576451e9362e64ed8c3600afe1702a9e64c6f`
-- **`TORRENT`** : [archcraft-lxde-2022.10.10-x86_64.iso.torrent](https://github.com/archcraft-os/archcraft-lxde/releases/download/v22.10/archcraft-lxde-2022.10.10-x86_64.iso.torrent)
+- **`ISO`** : [archcraft-lxde-2023.01.22-x86_64.iso](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.01/archcraft-lxde-2023.01.22-x86_64.iso)
+- **`SIG`** : [archcraft-lxde-2023.01.22-x86_64.iso.sig](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.01/archcraft-lxde-2023.01.22-x86_64.iso.sig)
+- **`SHA`** : [archcraft-lxde-2023.01.22-x86_64.iso.sha256sum](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.01/archcraft-lxde-2023.01.22-x86_64.iso.sha256sum)
+`df0f8a1154bff88e0aa0d9f138f49d79ade321b8b082884dd3c76734674231b0`
+- **`TORRENT`** : [archcraft-lxde-2023.01.22-x86_64.iso.torrent](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.01/archcraft-lxde-2023.01.22-x86_64.iso.torrent)
 
 ### Verify the authenticity of the ISO
 
@@ -48,10 +48,10 @@ $ gpg --keyserver hkp://pgp.mit.edu --recv-keys 7DC81F73
 
 - Then, Open `terminal` in the `~/Downloads` folder and run following command :
 ```
-$ gpg --verify archcraft-lxde-2022.10.10-x86_64.iso.sig
+$ gpg --verify archcraft-lxde-2023.01.22-x86_64.iso.sig
 ```
 
 - Finally, Verify the `sha256sum` by running :
 ```
-$ sha256sum -c archcraft-lxde-2022.10.10-x86_64.iso.sha256sum
+$ sha256sum -c archcraft-lxde-2023.01.22-x86_64.iso.sha256sum
 ```
