@@ -764,18 +764,38 @@
       <mousebind button="A-Left" action="Click">
         <action name="Unshade"/>
       </mousebind>
+      <!--
       <mousebind button="W-Left" action="Drag">
         <action name="Move"/>
       </mousebind>
-      <mousebind button="A-Left" action="Drag">
-        <action name="Move"/>
+      //-->
+      <mousebind button="W-Left" action="Drag">
+        <action name="if">
+          <maximized>yes</maximized>
+          <then>
+            <action name="UnmaximizeFull"/>
+            <action name="MoveResizeTo">
+              <x>center</x>
+              <y>current</y>
+            </action>
+            <action name="Move"/>
+          </then>
+          <else>
+            <action name="Move"/>
+          </else>
+        </action>
       </mousebind>
       <mousebind button="A-Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
+      <!--
       <mousebind button="A-Right" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+      //-->
+      <mousebind button="W-Right" action="Drag">
         <action name="Resize"/>
       </mousebind>
       <mousebind button="A-Middle" action="Press">
@@ -807,8 +827,26 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
+      <!--
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
+      </mousebind>
+      //-->
+      <mousebind button="Left" action="Drag">
+        <action name="if">
+          <maximized>yes</maximized>
+          <then>
+            <action name="UnmaximizeFull"/>
+            <action name="MoveResizeTo">
+              <x>center</x>
+              <y>current</y>
+            </action>
+            <action name="Move"/>
+          </then>
+          <else>
+            <action name="Move"/>
+          </else>
+        </action>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximizeFull"/>
@@ -820,9 +858,11 @@
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="Shade"/>
+        <!--
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
         <action name="Lower"/>
+        //-->
       </mousebind>
       <mousebind button="Down" action="Click">
         <action name="Unshade"/>
