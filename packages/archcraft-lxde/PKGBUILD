@@ -2,7 +2,7 @@
 
 pkgname=archcraft-lxde
 pkgver=1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="LXDE desktop configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-lxde"
 arch=('any')

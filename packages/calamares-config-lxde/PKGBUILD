@@ -2,13 +2,13 @@
 
 pkgname=calamares-config-lxde
 pkgver=1.0
-pkgrel=2
+pkgrel=5
 pkgdesc="Calamares configuration for Archcraft LXDE."
 url="https://github.com/archcraft-os/archcraft-lxde"
 arch=('any')
 license=('GPL')
 provides=($pkgname)
-conflicts=('calamares-config')
+conflicts=('calamares-config' 'calamares-config-xfce' 'calamares-config-prime' 'calamares-config-wayland')
 depends=()
 
 prepare() {
@@ -23,8 +23,10 @@ package() {
 	(find calamares -type f -exec install -Dm 644 "{}" "$pkgdir/etc/{}" \;)
 
 	# copy install scripts
-	install -Dm 755 post_install.sh				"$_bindir"/post_install.sh
-	install -Dm 755 chrooted_post_install.sh	"$_bindir"/chrooted_post_install.sh
+	install -Dm 755 post_install.sh					"$_bindir"/post_install.sh
+	install -Dm 755 chrooted_post_install.sh		"$_bindir"/chrooted_post_install.sh
+	install -Dm 755 post_install_nvidia.sh			"$_bindir"/post_install_nvidia.sh
+	install -Dm 755 chrooted_post_install_nvidia.sh	"$_bindir"/chrooted_post_install_nvidia.sh
 
 	# make scripts executable
 	chmod 755 "$pkgdir"/etc/calamares/launch.sh
