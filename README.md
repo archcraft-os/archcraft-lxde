@@ -25,33 +25,24 @@ Yet another minimal linux distribution, based on <a href="https://www.archlinux.
 
 ![img](./lxde.gif)
 
+<p align="center">
+Archcraft is an <b>arch-based</b> rolling-release distribution aimed at users who cares more about <b><i>minimalism and aesthetics</i></b> of their desktop. It comes pre-configured with various lightweight applications which makes it super fast. This flavor of Archcraft comes with <b>LXDE Desktop Environment</b>.
+</p>
+
 #
+
+> This repository contains old released (before July 2023). As the new ISOs increased in size more than 2GB, I can't release them on github due to it's limitations.
 
 ### Latest Release
 
-- **`ISO`** : [archcraft-lxde-2023.04.02-x86_64.iso](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.04/archcraft-lxde-2023.04.02-x86_64.iso)
-- **`SIG`** : [archcraft-lxde-2023.04.02-x86_64.iso.sig](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.04/archcraft-lxde-2023.04.02-x86_64.iso.sig)
-- **`SHA`** : [archcraft-lxde-2023.04.02-x86_64.iso.sha256sum](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.04/archcraft-lxde-2023.04.02-x86_64.iso.sha256sum)
-`e1555e0186db85ca9db0aa69454aa63b27474d630bf87ceec15a9f30f1cdaef0`
-- **`TORRENT`** : [archcraft-lxde-2023.04.02-x86_64.iso.torrent](https://github.com/archcraft-os/archcraft-lxde/releases/download/v23.04/archcraft-lxde-2023.04.02-x86_64.iso.torrent)
+**`MEGA`** : [Download](https://mega.nz/folder/r7gCmDzY#PJDsXIpKHS6f_cijvnhNbA)
 
-### Verify the authenticity of the ISO
+#
 
-- Download the **`ISO`**, **`gpg signature`** and **`sha256sum`** files
-- Make sure all the files are present in the same directory (Assuming `~/Downloads`)
-- First, Verify the details of the key on keyserver, Open a terminal and run (any one):
-```
-$ gpg --keyserver hkps://keys.gnupg.net --recv-keys 7DC81F73
-$ gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 7DC81F73
-$ gpg --keyserver hkp://pgp.mit.edu --recv-keys 7DC81F73
-```
+### From Archcraft Wiki
 
-- Then, Open `terminal` in the `~/Downloads` folder and run following command :
-```
-$ gpg --verify archcraft-lxde-2023.04.02-x86_64.iso.sig
-```
-
-- Finally, Verify the `sha256sum` by running :
-```
-$ sha256sum -c archcraft-lxde-2023.04.02-x86_64.iso.sha256sum
-```
+- [Things To Do After Installing Archcraft](https://wiki.archcraft.io/docs/install-archcraft/post-install)
+- [Install Archcraft With Calamares](https://wiki.archcraft.io/docs/install-archcraft/install-with-calamares)
+- [Install Archcraft With ABIF](https://wiki.archcraft.io/docs/install-archcraft/install-with-abif)
+- [Create A Bootable USB With Archcraft](https://wiki.archcraft.io/docs/boot-iso/boot-with-usb)
+- [Boot Archcraft ISO With GRUB2 Bootloader](https://wiki.archcraft.io/docs/boot-iso/boot-with-grub)
