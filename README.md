@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Maintained%3F-Yes-green?style=flat-square">
-  <img src="https://img.shields.io/github/downloads/archcraft-os/archcraft-lxde/total?label=downloads&logo=github&color=blue&style=flat-square">
+  <img src="https://img.shields.io/sourceforge/dt/archcraft-lxde.svg?label=downloads&logo=sourceforge&color=teal&style=flat-square">
   <img src="https://img.shields.io/github/issues/archcraft-os/archcraft-lxde?color=violet&style=flat-square">
   <img src="https://img.shields.io/github/license/archcraft-os/archcraft-lxde?color=orange&style=flat-square">
 </p>
@@ -28,14 +28,6 @@ Yet another minimal linux distribution, based on <a href="https://www.archlinux.
 <p align="center">
 Archcraft is an <b>arch-based</b> rolling-release distribution aimed at users who cares more about <b><i>minimalism and aesthetics</i></b> of their desktop. It comes pre-configured with various lightweight applications which makes it super fast. This flavor of Archcraft comes with <b>LXDE Desktop Environment</b>.
 </p>
-
-#
-
-> This repository contains old released (before July 2023). As the new ISOs increased in size more than 2GB, I can't release them on github due to it's limitations.
-
-### Latest Release
-
-**`MEGA`** : [Download](https://mega.nz/folder/r7gCmDzY#PJDsXIpKHS6f_cijvnhNbA)
 
 #
 

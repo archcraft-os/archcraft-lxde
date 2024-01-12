@@ -2,12 +2,11 @@
 
 pkgname=archcraft-lxde
 pkgver=1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="LXDE desktop configurations for Archcraft"
-url="https://github.com/archcraft-os/archcraft-lxde"
 arch=('any')
+url="https://github.com/archcraft-os/archcraft-lxde"
 license=('GPL3')
-makedepends=()
 depends=('gpicview' 'lxappearance' 'lxappearance-obconf'
 		 'lxde-common' 'lxde-icon-theme' 'lxhotkey-gtk3'
 		 'lxinput-gtk3' 'lxlauncher-gtk3' 'lxmusic'
@@ -15,32 +14,30 @@ depends=('gpicview' 'lxappearance' 'lxappearance-obconf'
 		 'lxtask-gtk3' 'lxterminal' 'openbox'
 		 'pcmanfm-gtk3' 'archcraft-lxdm'
 )
-conflicts=()
-provides=("${pkgname}")
 options=(!strip !emptydirs)
 
 prepare() {
-	cp -af ../files/. ${srcdir}
+	cp -af ../files/. "$srcdir"
 }
 
 package() {
-	local _configdir=${pkgdir}/etc/skel/.config
-	local _bindir=${pkgdir}/usr/local/bin
+	local _configdir="$pkgdir"/etc/skel/.config
+	local _bindir="$pkgdir"/usr/bin
 
 	mkdir -p "$_configdir" && mkdir -p "$_bindir"
 
 	# Copy configs files
 	cfgs=(flameshot gpicview libfm lxde-themes lxpanel lxsession lxterminal openbox pcmanfm)
 	for cfg in "${cfgs[@]}"; do
-		cp -r ${srcdir}/"$cfg" 				"$_configdir"	
+		cp -r "$srcdir"/"$cfg" 			"$_configdir"	
 	done
 	chmod +x "$_configdir"/lxde-themes/theme-changer
 	chmod +x "$_configdir"/lxde-themes/themes/apply.sh
 
 	# Copy scripts
-	cp -r ${srcdir}/scripts/* 				"$_bindir"
+	cp -r "$srcdir"/scripts/* 			"$_bindir"
 	chmod +x "$_bindir"/*
 
 	# Misc
-	install -Dm 644 logout-banner.png 		${pkgdir}/usr/share/pixmaps/logout-banner.png
+	install -Dm 644 logout-banner.png 	"$pkgdir"/usr/share/pixmaps/logout-banner.png
 }
